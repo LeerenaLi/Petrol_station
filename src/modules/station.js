@@ -68,12 +68,13 @@ export class Station {
             nowTank += column.speed;
             if (nowTank >= car.maxTank) {
                 clearInterval(timerId);
+                console.log('timerId: ', timerId);
                 const total = nowTank - needPetrol;
                 car.fillUp();
                 column.car = null;
                 this.leaveClient({car, total});
             }
-        }, 1000);
+        }, 10000);
         // console.log(`заправляем ${JSON.stringify(column.car)}`);
     }
 
